@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import Combine
 
 protocol MovieRepository {
-    
+    func fetchMovies() -> AnyPublisher<[Movie], Error>
 }

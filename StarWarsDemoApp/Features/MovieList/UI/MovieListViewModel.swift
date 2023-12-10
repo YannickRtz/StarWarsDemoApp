@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import Combine
 
 class MovieListViewModel: ObservableObject {
-    enum ViewState {
-        case initial
-        case loading
-        case success(movies: [Movie])
-        case failure(reason: String)
+    enum ViewState: Equatable {
+        case moviesInitial
+        case moviesLoading
+        case moviesSuccess(movies: [Movie])
+        case moviesFailure(reason: String)
     }
     
     let movieService: MovieService
@@ -21,9 +22,30 @@ class MovieListViewModel: ObservableObject {
         movieService = context.movieService
     }
     
-    @Published var state = ViewState.initial
+    @Published var state = ViewState.moviesInitial
+    private var cancelables = Set<AnyCancellable>()
     
     func fetchMovies() {
-        state = .loading
+        state = .moviesLoading
+        movieService.fetchMovies()
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("Fetching finished")
+                case .failure(let error):
+                    self.state = .moviesFailure(reason: error.localizedDescription)
+                }
+            } receiveValue: { movies in
+                self.state = .moviesSuccess(movies: movies)
+            }
+            .store(in: &cancelables)
+    }
+    
+    func cancelFetch() {
+        if (state != .moviesLoading) {
+            return
+        }
+        cancelables.removeAll()
+        state = .moviesInitial
     }
 }

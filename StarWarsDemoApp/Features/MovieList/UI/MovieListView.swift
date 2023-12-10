@@ -19,23 +19,48 @@ struct MovieListView: View {
         NavigationStack {
             NavigationSplitView {
                 switch viewModel.state {
-                case .initial:
+                case .moviesInitial:
                     Button("Fetch Movies") {
                         viewModel.fetchMovies()
                     }
                     .buttonStyle(.borderedProminent)
-                case .loading:
+                case .moviesLoading:
+                    ProgressView()
                     Text("Loading...")
-                case let .failure(reason):
+                        .padding()
+                    Button("Cancel") {
+                        viewModel.cancelFetch()
+                    }
+                case let .moviesFailure(reason):
                     Text(reason)
-                case let .success(movies):
-                    Text("success") // TODO
+                        .padding()
+                    Button("Retry") {
+                        viewModel.fetchMovies()
+                    }
+                case let .moviesSuccess(movies):
+                    List(movies) { m in
+                        HStack {
+                            Text(m.title)
+                            Spacer()
+                            Text(getYearReleased(m))
+                                .font(.caption)
+                        }
+                    }
                 }
             } detail: {
                 Text("Detail")
             }
-            .navigationTitle("Movie List")
+            .navigationTitle("Star Wars Movies")
         }
+    }
+    
+    func getYearReleased(_ m: Movie) -> String {
+        let cal = Calendar.current
+        let year = cal.dateComponents([.year], from: m.date).year!
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .none
+        let number = NSNumber(value: year)
+        return formatter.string(from: number)!
     }
 }
 
