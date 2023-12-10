@@ -51,6 +51,8 @@
 		6CA4085A2B25BB6100130428 /* StarWarsDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				6CA408702B25C1E200130428 /* Utilities */,
+				6CA408692B25BE0200130428 /* Features */,
 				6CA4085B2B25BB6100130428 /* StarWarsDemoAppApp.swift */,
 				6CA4085D2B25BB6100130428 /* ContentView.swift */,
 				6CA4085F2B25BB6300130428 /* Assets.xcassets */,
@@ -65,6 +67,52 @@
 				6CA408622B25BB6300130428 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6CA408692B25BE0200130428 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				6CA4086A2B25BE1200130428 /* MovieList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		6CA4086A2B25BE1200130428 /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				6CA4086D2B25C10E00130428 /* Data */,
+				6CA4086C2B25C10000130428 /* Domain */,
+				6CA4086B2B25BE2D00130428 /* UI */,
+			);
+			path = MovieList;
+			sourceTree = "<group>";
+		};
+		6CA4086B2B25BE2D00130428 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		6CA4086C2B25C10000130428 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6CA4086D2B25C10E00130428 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6CA408702B25C1E200130428 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
