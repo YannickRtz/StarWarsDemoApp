@@ -10,13 +10,13 @@ import SwiftUI
 struct MovieListView: View {
     let context: AppContext
     @ObservedObject private var viewModel: MovieListViewModel
+    @State private var selectedMovie: Movie?    
     
     init(_ context: AppContext) {
         self.context = context
         self.viewModel = MovieListViewModel(context)
     }
     var body: some View {
-        NavigationStack {
             NavigationSplitView {
                 switch viewModel.state {
                 case .moviesInitial:
@@ -38,20 +38,23 @@ struct MovieListView: View {
                         viewModel.fetchMovies()
                     }
                 case let .moviesSuccess(movies):
-                    List(movies) { m in
-                        HStack {
+                    List(movies, selection: $selectedMovie) { m in
+                        NavigationLink(value: m) {
                             Text(m.title)
-                            Spacer()
-                            Text(getYearReleased(m))
-                                .font(.caption)
                         }
                     }
                 }
             } detail: {
-                Text("Detail")
+                // TODO: Move to its own View File
+                if let selectedMovie {
+                    Text("Details for \"\(selectedMovie.title)\"...")
+                        .font(.headline)
+                    Text("Released \(getYearReleased(selectedMovie))")
+                } else {
+                    Text("Choose a movie from the list")
+                }
             }
             .navigationTitle("Star Wars Movies")
-        }
     }
     
     func getYearReleased(_ m: Movie) -> String {

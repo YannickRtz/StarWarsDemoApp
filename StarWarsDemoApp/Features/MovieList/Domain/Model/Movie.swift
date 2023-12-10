@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie: Equatable, Identifiable {
+struct Movie: Equatable, Identifiable, Hashable {
     let title: String
     let id: Int
     let date: Date

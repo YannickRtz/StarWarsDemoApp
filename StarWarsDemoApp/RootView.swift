@@ -27,7 +27,7 @@ struct RootView: View {
             .tag(Tab.movieList)
 
             NavigationView {
-                EmptyView() // TODO
+                Text("Nothing to see here") // TODO
             }
             .tabItem {
                 Label("Feature 2", systemImage: "wrench.and.screwdriver")

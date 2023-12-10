@@ -31,7 +31,7 @@ class MovieListViewModel: ObservableObject {
             .sink { completion in
                 switch completion {
                 case .finished:
-                    print("Fetching finished")
+                    break
                 case .failure(let error):
                     self.state = .moviesFailure(reason: error.localizedDescription)
                 }
