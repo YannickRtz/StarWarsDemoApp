@@ -15,6 +15,12 @@ class MovieListViewModel: ObservableObject {
         case failure(reason: String)
     }
     
+    let movieService: MovieService
+    
+    init(_ context: AppContext) {
+        movieService = context.movieService
+    }
+    
     @Published var state = ViewState.initial
     
     func fetchMovies() {

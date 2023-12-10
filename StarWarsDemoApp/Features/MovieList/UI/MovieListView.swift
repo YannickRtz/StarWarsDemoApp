@@ -13,7 +13,7 @@ struct MovieListView: View {
     
     init(_ context: AppContext) {
         self.context = context
-        self.viewModel = MovieListViewModel()
+        self.viewModel = MovieListViewModel(context)
     }
     var body: some View {
         NavigationStack {

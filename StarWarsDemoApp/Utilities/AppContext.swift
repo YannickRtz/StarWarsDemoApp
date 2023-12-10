@@ -8,13 +8,13 @@
 import Foundation
 
 struct AppContext {
-    // let movieService...
-    // init...
+    let movieService: MovieService
 }
 
 extension AppContext {
     static func bootstrap() -> AppContext {
-        // let movieService...
-        return AppContext() // TODO
+        let movieRepository = MovieRepositoryImpl()
+        let movieService = MovieService(movieRepository: movieRepository)
+        return AppContext(movieService: movieService)
     }
 }

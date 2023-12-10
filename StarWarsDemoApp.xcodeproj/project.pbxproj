@@ -15,6 +15,10 @@
 		6CA408742B25C90800130428 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA408732B25C90800130428 /* MovieListView.swift */; };
 		6CA408762B25CC9A00130428 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA408752B25CC9A00130428 /* MovieListViewModel.swift */; };
 		6CA408792B25CEAD00130428 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA408782B25CEAD00130428 /* Movie.swift */; };
+		6CA4087B2B25DABC00130428 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA4087A2B25DABC00130428 /* MovieService.swift */; };
+		6CA4087D2B25DB2500130428 /* MovieRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA4087C2B25DB2500130428 /* MovieRepositoryImpl.swift */; };
+		6CA4087F2B25DC9F00130428 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA4087E2B25DC9F00130428 /* MovieRepository.swift */; };
+		6CA408812B25DDC900130428 /* SWAPIMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA408802B25DDC900130428 /* SWAPIMovie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		6CA408732B25C90800130428 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		6CA408752B25CC9A00130428 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		6CA408782B25CEAD00130428 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		6CA4087A2B25DABC00130428 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		6CA4087C2B25DB2500130428 /* MovieRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepositoryImpl.swift; sourceTree = "<group>"; };
+		6CA4087E2B25DC9F00130428 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
+		6CA408802B25DDC900130428 /* SWAPIMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIMovie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				6CA408772B25CE8100130428 /* Model */,
+				6CA4087A2B25DABC00130428 /* MovieService.swift */,
+				6CA4087E2B25DC9F00130428 /* MovieRepository.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -115,6 +125,8 @@
 		6CA4086D2B25C10E00130428 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				6CA4087C2B25DB2500130428 /* MovieRepositoryImpl.swift */,
+				6CA408802B25DDC900130428 /* SWAPIMovie.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -205,12 +217,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CA4087D2B25DB2500130428 /* MovieRepositoryImpl.swift in Sources */,
+				6CA408812B25DDC900130428 /* SWAPIMovie.swift in Sources */,
 				6CA4085E2B25BB6100130428 /* RootView.swift in Sources */,
+				6CA4087F2B25DC9F00130428 /* MovieRepository.swift in Sources */,
 				6CA408742B25C90800130428 /* MovieListView.swift in Sources */,
 				6CA408792B25CEAD00130428 /* Movie.swift in Sources */,
 				6CA408722B25C51500130428 /* AppContext.swift in Sources */,
 				6CA4085C2B25BB6100130428 /* StarWarsDemoAppApp.swift in Sources */,
 				6CA408762B25CC9A00130428 /* MovieListViewModel.swift in Sources */,
+				6CA4087B2B25DABC00130428 /* MovieService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
